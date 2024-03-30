@@ -16,11 +16,11 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/lge/judypn/judypn-vendor.mk)
-
 DEVICE_PATH := device/lge/judypn
 DEVICE_NAME := judypn
+
+# Inherit from common tree
+$(call inherit-product, device/lge/sdm845-common/sdm845.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -29,9 +29,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
-
-# Setup dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -74,9 +71,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
 
-# Remove unwanted packages
-PRODUCT_PACKAGES += \
-    RemovePackages
 
-# common judy (sdm845)
-$(call inherit-product, device/lge/sdm845-common/sdm845.mk)
+# Get non-open-source specific aspects
+$(call inherit-product-if-exists, vendor/lge/judypn/judypn-vendor.mk)

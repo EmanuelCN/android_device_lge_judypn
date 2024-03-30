@@ -38,7 +38,6 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Recovery
-TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/recovery.wipe
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.judypn
 
 # inherit from the proprietary version
