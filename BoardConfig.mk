@@ -37,8 +37,5 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 # Platform
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
-# Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.judypn
-
 # inherit from the proprietary version
 -include vendor/lge/judypn/BoardConfigVendor.mk
